@@ -5,9 +5,9 @@ use lib "$FindBin::Bin/";
 require entity::job;
 my $job = entity::job->new();
 
-print "\nJob Default Status: " . $job->get_default_status('upper');
+printf "Job Default Status: %s\n" , $job->get_default_status('upper');
 
 require entity::sale;
 my $sale = entity::sale->new();
 
-print "\nSale Default Status: ". $sale->get_default_status('upper');
+printf "Sale Default Status: %s\n" , $sale->get_default_status('upper');
