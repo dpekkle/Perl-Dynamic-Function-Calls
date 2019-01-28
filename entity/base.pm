@@ -26,12 +26,8 @@ sub call_utility_file
 	my ($function, $params) = @_;
 
 	my $module = $self->get_utility_package();
-
-	# A dynamic require must be called on a path in the form utility/job.pm, not utility::job
-	my $path = $module;
-	$path =~ s/::/\//g;
-	$path .= '.pm';
-	require $path;
+	eval "require $module";
+	die $@ if $@;
 
 	# Can will actually return a coderef that we can call without worrying about the class being the first param when called,
 	# Meaning we don't have to do something like `my $self = shift if ($_[0] eq 'utility::job')` in utility::job::get_default_status
