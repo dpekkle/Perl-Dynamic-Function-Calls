@@ -154,7 +154,7 @@ sub dynamic_full_name
     return $package->can('get_full_name')->($upper_case);
 }
 
-dynamic_full_name('Bar', 1);
+dynamic_full_name('Foo::Bar', 1);
 # returns ARCHIBALD FOO
 ```
 
